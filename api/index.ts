@@ -7,6 +7,8 @@ import { LocalFileRepository } from './repositories/LocalFile';
 import { ListLogsService } from './services/ListLogs';
 import { SaveLogService } from './services/SaveLog';
 
+const PORT = process.env.PORT || 3311;
+
 const app = express();
 app.use(cors());
 app.use(express.json());
