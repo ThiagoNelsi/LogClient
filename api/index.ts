@@ -35,6 +35,6 @@ app.get('/logs', async (req: Request, res: Response) => {
   res.json(logs);
 });
 
-server.listen(3311, () => {
+server.listen(PORT, () => {
   console.log('listening on http://localhost:3311');
 });
