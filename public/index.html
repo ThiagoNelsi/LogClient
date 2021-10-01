@@ -21,7 +21,7 @@
       logsBox.innerText += log + '\n';
     });
 
-    fetch('http://localhost:3311').then(async response => {
+    fetch('http://localhost:3311/logs').then(async response => {
       response.json().then(logs => {
         logs.forEach(log => logsBox.innerText += log + '\n');
       });
