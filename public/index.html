@@ -7,24 +7,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SisProva Logs</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
   <div class="container">
-    <h1>Logs</h1>
+    <h1>Real Time Logs</h1>
     <pre id="logs"></pre>
   </div>
   <script>
     const logsBox = document.getElementById('logs');
+
     const socket = io('/');
     socket.on('newLog', (log) => {
       logsBox.innerText += log + '\n';
+      if (logsBox.scrollHeight - logsBox.scrollTop < 1000) logsBox.scrollTop = logsBox.scrollHeight
     });
 
     fetch('/logs').then(async response => {
       response.json().then(logs => {
         logs.forEach(log => logsBox.innerText += log + '\n');
       });
+      setTimeout(() => {
+        logsBox.scrollTop = logsBox.scrollHeight;
+      }, 500);
     });
   </script>
 
