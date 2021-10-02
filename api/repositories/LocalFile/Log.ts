@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { ILogRepository } from "../definitions/ILogRepository";
+import { ILogRepository } from "../../definitions/ILogRepository";
 
 export class LocalFileRepository implements ILogRepository {
 
