@@ -12,7 +12,7 @@ export class MongoDBLogRepository implements ILogRepository {
   create(log: string): void {
     this.logsCollection.insertOne({
       log
-    }).catch(err => console.log(err));
+    });
   }
 
   async list(): Promise<string[]> {
