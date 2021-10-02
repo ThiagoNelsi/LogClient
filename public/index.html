@@ -16,12 +16,12 @@
   </div>
   <script>
     const logsBox = document.getElementById('logs');
-    const socket = io('http://localhost:3311');
+    const socket = io('/');
     socket.on('newLog', (log) => {
       logsBox.innerText += log + '\n';
     });
 
-    fetch('http://localhost:3311/logs').then(async response => {
+    fetch('/logs').then(async response => {
       response.json().then(logs => {
         logs.forEach(log => logsBox.innerText += log + '\n');
       });

@@ -10,7 +10,6 @@ export class LocalFileRepository implements ILogRepository {
 
   async list() {
     const logs = fs.readFileSync(path.resolve(__dirname, '../logs.log'), { encoding: 'utf8' }).split('\n');
-    console.log(logs)
     if (logs[logs.length - 1].length === 0) logs.pop()
     return logs;
   }
