@@ -14,24 +14,36 @@
   <div class="container">
     <h1>Real Time Logs</h1>
     <pre id="logs"></pre>
+    <div class="buttons">
+      <button id="btn-downloadLogs" onclick="download()">Download Logs</button>
+    </div>
   </div>
   <script>
     const logsBox = document.getElementById('logs');
 
     const socket = io('/');
     socket.on('newLog', (log) => {
-      logsBox.innerText += log + '\n';
+      logsBox.innerHTML += `<span>${log}\n</span>`;
       if (logsBox.scrollHeight - logsBox.scrollTop < 1000) logsBox.scrollTop = logsBox.scrollHeight
     });
 
     fetch('/logs').then(async response => {
       response.json().then(logs => {
-        logs.forEach(log => logsBox.innerText += log + '\n');
+        logs.forEach(log => logsBox.innerHTML += `<span>${log}\n</span>`);
       });
       setTimeout(() => {
         logsBox.scrollTop = logsBox.scrollHeight;
       }, 500);
     });
+
+    function download() {
+      const blob = new Blob([logsBox.innerText], { type: 'text/plain' });
+      const a = document.createElement('a');
+      a.setAttribute('download', 'logs');
+      a.setAttribute('href', window.URL.createObjectURL(blob));
+      a.click();
+    }
+
   </script>
 
 </body>
