@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+:root {
+  font-size: 62.5%;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -20,6 +24,15 @@
   gap: 5%;
 }
 
+#filter-input {
+  font-size: 1.4rem;
+  width: 95%;
+  max-width: 1000px;
+  padding: 1rem;
+  box-shadow: 0 0 5px rgb(218, 218, 218);
+  border-radius: 5px;
+}
+
 #logs {
   border: 1px solid #ccc;
   width: 95%;
@@ -29,11 +42,14 @@
   color: #FFF;
   padding: 2rem;
   overflow: auto;
+  font-size: 1.4rem;
+  border-radius: 5px;
 }
 
 .buttons button {
-  font-size: 1.2rem;
-  padding: .6rem 2.5rem;
+  font-size: 1.4rem;
+  padding: .8rem 2.7rem;
+  border-radius: 5px;
 }
 
 #btn-downloadLogs {
