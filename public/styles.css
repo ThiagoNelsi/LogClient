@@ -41,3 +41,8 @@
   color: #FFF;
   margin-right: 50px;
 }
+
+#btn-clearLogs {
+  background-color: rgb(108 26 26);
+  color: #FFF;
+}

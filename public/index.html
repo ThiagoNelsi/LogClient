@@ -16,6 +16,7 @@
     <pre id="logs"></pre>
     <div class="buttons">
       <button id="btn-downloadLogs" onclick="download()">Download Logs</button>
+      <button id="btn-clearLogs" onclick="clearLogs()">Limpar Logs</button>
     </div>
   </div>
   <script>
@@ -42,6 +43,10 @@
       a.setAttribute('download', 'logs');
       a.setAttribute('href', window.URL.createObjectURL(blob));
       a.click();
+    }
+
+    function clearLogs() {
+      logsBox.innerHTML = '';
     }
 
   </script>
